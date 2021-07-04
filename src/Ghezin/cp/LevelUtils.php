@@ -17,7 +17,7 @@ class LevelUtils{
 		$level=Core::getInstance()->getDatabaseHandler()->getLevel(Utils::getPlayerName($player));
 		$player=Utils::getPlayer($player);
 		if($player instanceof Player){
-			//$player->sendMessage("§3You are now level §b".$level."§3!");
+			$player->sendMessage("§3You are now level §b".$level."§3!");
 		}
 	}
 	public static function increaseCurrentXp($player, $reason, $ranked=false, $xpday=false){
@@ -74,7 +74,7 @@ class LevelUtils{
 				Core::getInstance()->getDatabaseHandler()->setCurrentXp(Utils::getPlayerName($player), $currentxp + $total);
 				Core::getInstance()->getDatabaseHandler()->setTotalXp(Utils::getPlayerName($player), $totalxp + $total);
 			}
-			/*$currentxpnew=Core::getInstance()->getDatabaseHandler()->getCurrentXp(Utils::getPlayerName($player));
+			$currentxpnew=Core::getInstance()->getDatabaseHandler()->getCurrentXp(Utils::getPlayerName($player));
 			$progress=round($currentxpnew / $neededxp * 100, 1);
 			$pc='%';
 			$player=Utils::getPlayer($player);
@@ -88,7 +88,7 @@ class LevelUtils{
 				}else{
 					$player->sendMessage("Level Progress: ".Utils::formatLevel($level)." §7- ".$currentxpnew."/".$neededxp." (".$progress.$pc.")");
 				}
-			}*/
+			}
 			break;
 			case "death":
 			$rand=mt_rand(10, 20);
@@ -140,7 +140,7 @@ class LevelUtils{
 				Core::getInstance()->getDatabaseHandler()->setCurrentXp(Utils::getPlayerName($player), $currentxp + $total);
 				Core::getInstance()->getDatabaseHandler()->setTotalXp(Utils::getPlayerName($player), $totalxp + $total);
 			}
-			/*$currentxpnew=Core::getInstance()->getDatabaseHandler()->getCurrentXp(Utils::getPlayerName($player));
+			$currentxpnew=Core::getInstance()->getDatabaseHandler()->getCurrentXp(Utils::getPlayerName($player));
 			$progress=round($currentxpnew / $neededxp * 100, 1);
 			$pc='%';
 			$player=Utils::getPlayer($player);
@@ -154,7 +154,7 @@ class LevelUtils{
 				}else{
 					$player->sendMessage("Level Progress: ".Utils::formatLevel($level)." §7- ".$currentxpnew."/".$neededxp." (".$progress.$pc.")");
 				}
-			}*/
+			}
 			break;
 			default:
 			return;
