@@ -22,14 +22,14 @@ class ServerListener implements Listener{
 	* @priority HIGHEST
 	*/
 	public function onQuery(QueryRegenerateEvent $event){
-		//$event->setMaxPlayerCount(count($this->plugin->getServer()->getOnlinePlayers()) + 30);
+		$event->setMaxPlayerCount(count($this->plugin->getServer()->getOnlinePlayers()) + 1);
 	}
 	/**
 	* @priority HIGHEST
 	*/
 	public function onPluginDisable(PluginDisableEvent $event){
 		$plugin=$event->getPlugin();
-		if($plugin->getName()=="Vasar"){
+		if($plugin->getName()=="Practice"){
 			foreach($this->plugin->getServer()->getOnlinePlayers() as $player){
 				if($this->plugin->getDuelHandler()->isInDuel($player)){
 					$duel=$this->plugin->getDuelHandler()->getDuel($player);
