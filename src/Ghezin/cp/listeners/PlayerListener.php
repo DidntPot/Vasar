@@ -151,6 +151,7 @@ class PlayerListener implements Listener{
 		if($player instanceof CPlayer) $player->initializeJoin();
 		$event->setJoinMessage("");
 		$player->sendMessage("\n§l§bVASAR§r\n\n§eWelcome to Vasar, §b".$player->getName()."§e.§r\n\n");
+		Utils::sendChangelogForm($player);
 	}
 	/**
 	* @priority HIGHEST
