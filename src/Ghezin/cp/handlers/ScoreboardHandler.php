@@ -43,7 +43,7 @@ class ScoreboardHandler{
 		$this->scoreboard[$player->getName()]=$player->getName();
 		$this->main[$player->getName()]=$player->getName();
 	}
-    public function sendFFAScoreboard($player, string $type, string $queue, string $opponent):void{
+    public function sendFFAScoreboard($player):void{
         $player=Utils::getPlayer($player);
         if(Utils::isScoreboardEnabled($player)==false){
             return;
