@@ -427,7 +427,7 @@ class CPlayer extends Player{
 			if($title===true){
 				$this->sendMessage("You selected §bNoDebuff");
 			}
-			$this->plugin->getScoreboardHandler()->sendMainScoreboard($this);
+			$this->plugin->getScoreboardHandler()->sendFFAScoreboard($this);
 			break;
 			case 2:
 			$x=100.5;
@@ -442,7 +442,7 @@ class CPlayer extends Player{
 			if($title===true){
 				$this->sendMessage("You selected §bGapple");
 			}
-			$this->plugin->getScoreboardHandler()->sendMainScoreboard($this);
+			$this->plugin->getScoreboardHandler()->sendFFAScoreboard($this);
 			break;
 			case 3:
 			$x=100.5;
@@ -457,7 +457,7 @@ class CPlayer extends Player{
 			if($title===true){
 				$this->sendMessage("You selected §bOP Gapple");
 			}
-			$this->plugin->getScoreboardHandler()->sendMainScoreboard($this);
+			$this->plugin->getScoreboardHandler()->sendFFAScoreboard($this);
 			break;
 			case 4:
 			$x=mt_rand(85, 115);
@@ -473,7 +473,7 @@ class CPlayer extends Player{
 			if($title===true){
 				$this->sendMessage("You selected §bCombo");
 			}
-			$this->plugin->getScoreboardHandler()->sendMainScoreboard($this);
+			$this->plugin->getScoreboardHandler()->sendFFAScoreboard($this);
 			break;
 			case 5:
 			$x=mt_rand(95, 105);
@@ -489,7 +489,7 @@ class CPlayer extends Player{
 			if($title===true){
 				$this->sendMessage("You selected §bFist");
 			}
-			$this->plugin->getScoreboardHandler()->sendMainScoreboard($this);
+			$this->plugin->getScoreboardHandler()->sendFFAScoreboard($this);
 			break;
 			case 7:
 			$x=100.5;
@@ -504,7 +504,7 @@ class CPlayer extends Player{
 			if($title===true){
 				$this->sendMessage("You selected §bNoDebuff (Low KB)");
 			}
-			$this->plugin->getScoreboardHandler()->sendMainScoreboard($this);
+			$this->plugin->getScoreboardHandler()->sendFFAScoreboard($this);
 			break;
 			case 8:
 			$x=100.5;
@@ -519,7 +519,7 @@ class CPlayer extends Player{
 			if($title===true){
 				$this->sendMessage("You selected §bNoDebuff (Java)");
 			}
-			$this->plugin->getScoreboardHandler()->sendMainScoreboard($this);
+			$this->plugin->getScoreboardHandler()->sendFFAScoreboard($this);
 			break;
 			default:
 			return;
