@@ -20,12 +20,11 @@ class CombatTask extends Task{
 			$player=$this->plugin->getServer()->getPlayerExact($name);
 			$time--;
 			if($player->isTagged()){
-				//$player->sendTip("In combat, please wait §b".$time."s");
-				$this->plugin->getScoreboardHandler()->updateMainLineCombat($player, $time);
+				$player->sendTip("In combat, please wait ".$time."s");
 			}
 			if($time<=0){
 				$player->setTagged(false);
-				//$this->plugin->getScoreboardHandler()->updateMainLineCombat($player, 0);
+				$player->sendMessage("§aYou are no longer in combat.");
 				return;
 			}
 			$this->plugin->taggedPlayer[$name]--;
