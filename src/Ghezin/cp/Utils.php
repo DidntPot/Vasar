@@ -181,7 +181,6 @@ class Utils{
 		});
 		$form->setTitle("What's New");
 		$form->setContent("§bCore update for Vasar.\n\n§f"."\n- Ranked Duels now only contain NoDebuff, Gapple, Soup, and BuildUHC as the 'fun' modes were removed to prevent easy gain of elo and wins."."\n\n§3Have questions or concerns? Join our discord at ".Core::DISCORD.".");
-		$form->addButton("Confirm");
 		$player->sendForm($form);
 	}
 	public static function transferPlayers(array $players){
