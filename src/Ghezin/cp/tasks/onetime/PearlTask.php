@@ -21,12 +21,12 @@ class PearlTask extends Task{
 	}
 	public function onRun(int $currentTick):void{
 		$this->timer--;
-		if($this->timer==10){
+		if($this->timer==16){
 			$this->player->setEnderPearlCooldown(true);
 			$percent=floatval($this->timer / 10);
 			$this->player->setXpProgress($percent);
 		}
-		if($this->timer<10){
+		if($this->timer<16){
 			$percent=floatval($this->timer / 10);
 			$this->player->setXpProgress($percent);
 		}
