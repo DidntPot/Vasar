@@ -316,7 +316,6 @@ class Core extends PluginBase{
 		$map->scheduleRepeatingTask(new TemporaryRankTask($this), 1200);
 		$map->scheduleRepeatingTask(new DatabaseTask($this), 1200);
 		$map->scheduleRepeatingTask(new DropsTask($this), 2400);
-		$map->scheduleRepeatingTask(new PingTask($this), 100);
 		$map->scheduleDelayedRepeatingTask(new BroadcastTask($this), 300, 12000);
 		$map->scheduleRepeatingTask(new NameTagTask($this), 5);
 		$map->scheduleRepeatingTask(new VanishTask($this), 5);
