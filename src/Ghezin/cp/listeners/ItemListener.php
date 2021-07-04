@@ -1331,7 +1331,7 @@ class ItemListener implements Listener{
 				$this->unrankedForm($player);
 				break;
 				case "duels":
-				$this->ongoingDuelsForm($player);
+				$this->spectateForm($player);
 				break;
 				case "leave":
 				$this->plugin->getDuelHandler()->removePlayerFromQueue($player);
