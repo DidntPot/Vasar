@@ -149,7 +149,8 @@ class PlayerListener implements Listener{
 	public function onJoin(PlayerJoinEvent $event){
 		$player=$event->getPlayer();
 		if($player instanceof CPlayer) $player->initializeJoin();
-		$event->setJoinMessage("§2+ §a".$player->getDisplayName());
+		$event->setJoinMessage("");
+		$player->sendMessage("\n§l§bVASAR§r\n\n§eWelcome to Vasar, §b".$player->getName()."§e.§r\n\n");
 	}
 	/**
 	* @priority HIGHEST
@@ -158,7 +159,7 @@ class PlayerListener implements Listener{
 		$player=$event->getPlayer();
 		$reason=$event->getQuitReason();
 		if($player instanceof CPlayer) $player->initializeQuit();
-		$event->setQuitMessage("§4-§c ".$player->getDisplayName());
+		$event->setQuitMessage("");
 		if($player instanceof CPlayer and $player->isTagged()){
 			if($reason=="client disconnect"){
 				Utils::updateStats($player, 2);
@@ -328,7 +329,7 @@ class PlayerListener implements Listener{
 				if($online->hasPermission("cp.access.staffchat")){
 					$msg=str_replace("!", "", $message);
 					$level=$online->getLevel()->getName();
-					$online->sendMessage("§8[STAFF] §4[".$rank."] ".$player->getName().": §f".$msg);
+					$online->sendMessage("§8[STAFF] §7".$player->getName().": §f".$msg);
 				}
 			}
 		}
@@ -498,7 +499,6 @@ class PlayerListener implements Listener{
 				}
 				if($player instanceof CPlayer and $player->isVanished()){
 					$event->setCancelled();
-					$damager->sendMessage("§cYou cannot damage a vanished player.");
 				}
 				if($damager->isFrozen()){
 					$event->setCancelled();
@@ -540,6 +540,9 @@ class PlayerListener implements Listener{
 		if($packet instanceof DisconnectPacket and $packet->message==="Server is white-listed"){
 			$packet->message=("§cWe are currently whitelisted, check back shortly.\n§fDiscord: ".Core::DISCORD);
 		}
+		if($packet instanceof DisconnectPacket and $packet->message==="generic reason"){
+			$packet->message=("§bPractice is restarting.");
+		}
 	}
 	/**
 	* @priority LOW
@@ -557,7 +560,7 @@ class PlayerListener implements Listener{
 			}
 		}
 		if($this->plugin->getClickHandler()->isInArray($player)){
-			if($packet::NETWORK_ID===InventoryTransactionPacket::NETWORK_ID and $packet->transactionType===InventoryTransactionPacket::TYPE_USE_ITEM_ON_ENTITY){
+			if($packet instanceof InventoryTransactionPacket and $packet->trData->getTypeId()===InventoryTransactionPacket::TYPE_USE_ITEM_ON_ENTITY){
 				$this->plugin->getClickHandler()->addClick($player);
 			}
 		}
