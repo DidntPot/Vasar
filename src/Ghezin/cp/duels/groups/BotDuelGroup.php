@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Ghezin\cp\duels\groups;
 
+use pocketmine\item\Item;
 use pocketmine\block\Block;
 use pocketmine\block\BlockFactory;
 use pocketmine\block\Bed;
