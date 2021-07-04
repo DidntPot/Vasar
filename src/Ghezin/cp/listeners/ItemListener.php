@@ -36,6 +36,26 @@ class ItemListener implements Listener{
 		$player=$event->getPlayer();
 		//$this->spectateForm($player);
 		$item=$player->getInventory()->getItemInHand();
+		if($item->getCustomName()=="§r§bDuel"){
+			$event->setCancelled();
+			if($player->isInParty()){
+				$player->sendMessage("§cThis is disabled, you are in a party.");
+				return;
+			}
+			$cooldown=1;
+			if(!isset($this->formCd[$player->getName()])){
+				$this->formCd[$player->getName()]=time();
+				$this->duelForm($player);
+			}else{
+				if($cooldown > time() - $this->formCd[$player->getName()]){
+					$time=time() - $this->formCd[$player->getName()];
+				}else{
+					$this->formCd[$player->getName()]=time();
+					$this->duelForm($player);
+					return;
+				}
+			}
+		}
 		if($item->getCustomName()=="§r§bUnranked"){
 			$event->setCancelled();
 			if($player->isInParty()){
@@ -1576,7 +1596,6 @@ class ItemListener implements Listener{
 			}
 			if($allowspecs===true) $form->addButton($party."'s Party\n".$queue, -1, "", $duel->getParty()->getLeader());
 		}
-		$form->addButton("Exit", -1, "", "exit");
 		$player->sendForm($form);
 	}
 }
