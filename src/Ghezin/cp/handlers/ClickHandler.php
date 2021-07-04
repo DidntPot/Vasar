@@ -36,7 +36,7 @@ class ClickHandler{
 		if(count($this->clicks[$player->getName()]) >= 100){
 			array_pop($this->clicks[$player->getName()]);
 		}
-		if(Utils::isCpsCounterEnabled($player)==true) $player->sendTip("§fCPS: §b".$this->getCps($player));
+		if(Utils::isCpsCounterEnabled($player)==true) $player->sendTip("§b".$this->getCps($player));
 	}
 	public function getCps(Player $player, float $deltaTime=1.0, int $roundPrecision=1):float{
 		if(!$this->isInArray($player) or empty($this->clicks[$player->getName()])){
