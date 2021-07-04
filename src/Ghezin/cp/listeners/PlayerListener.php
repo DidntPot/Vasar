@@ -232,7 +232,10 @@ class PlayerListener implements Listener{
 				$event->setDeathMessage($dm);
 				$killer->setHealth($killer->getMaxHealth());
 				if($killer instanceof CPlayer) Utils::updateStats($killer, 0);
+				if($killer instanceof CPlayer) LevelUtils::increaseCurrentXp($killer, "kill", false);
+				if($killer instanceof CPlayer) LevelUtils::checkXp($killer);
 				if($player instanceof CPlayer) Utils::updateStats($player, 1);
+				if($player instanceof CPlayer) LevelUtils::checkXp($player);
 				if(Utils::isAutoRekitEnabled($killer)==true) Kits::sendKit($killer, $killer->getLevel()->getName());
 			}
 		}
