@@ -126,20 +126,24 @@ class ItemListener implements Listener{
 					return;
 				//}
 			}
-			if($this->plugin->getDuelHandler()->isPlayerInQueue($player)){
-				$player->sendMessage("§cYou cannot view this while queued.");
-				return;
-			}
 			$cooldown=1;
 			if(!isset($this->formCd[$player->getName()])){
 				$this->formCd[$player->getName()]=time();
-				$this->warpForm($player);
+                                if($this->plugin->getDuelHandler()->isPlayerInQueue($player)){
+                                        $player->sendMessage("§cYou cannot view this while queued.");
+                                }else{
+                                        $this->warpForm($player);
+                                }
 			}else{
 				if($cooldown > time() - $this->formCd[$player->getName()]){
 					$time=time() - $this->formCd[$player->getName()];
 				}else{
 					$this->formCd[$player->getName()]=time();
-					$this->warpForm($player);
+                                        if($this->plugin->getDuelHandler()->isPlayerInQueue($player)){
+                                                $player->sendMessage("§cYou cannot view this while queued.");
+                                        }else{
+                                                $this->warpForm($player);
+                                        }
 					return;
 				}
 			}
