@@ -13,7 +13,7 @@ use Ghezin\cp\Utils;
 
 class Party{
 	
-	const PREFIX="§9PARTY §8»§r ";
+	const PREFIX="§9PARTY§8:§r ";
 	
 	const LEADER="Leader";
 	const MEMBER="Member";
