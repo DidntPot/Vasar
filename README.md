@@ -39,12 +39,12 @@ Enjoy. ❤️️
   - All bans are carried out through both an IP and client-id blacklisting
   - Notifications on rank changes, ban/mute/rank expirations, gamemode changes, anti-cheat alerts
   - Staff chat (use `!` before your message)
-- [x] Anti-Cheat (very limited)
+- [x] Anti-Cheat
   - Reach
   - CPS
   - High ping
-- [x] Bots (very unstable, should be left alone)
-- [x] Discord integration (very unstable, should be left alone)
+- [x] Bots
+- [x] Discord integration
 
 ## Config
 - [x] Arena Config
