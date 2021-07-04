@@ -77,7 +77,7 @@ class CPlayer extends Player{
 	
 	public function __construct(SourceInterface $interface, $ip, $port){
 		parent::__construct($interface, $ip, $port);
-		$plugin=$this->getServer()->getPluginManager()->getPlugin("Vasar");
+		$plugin=$this->getServer()->getPluginManager()->getPlugin("Practice");
 		if($plugin instanceof Core){
 			$this->setPlugin($plugin);
 		}else{
