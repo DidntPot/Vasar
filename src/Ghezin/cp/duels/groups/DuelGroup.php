@@ -18,6 +18,7 @@ use pocketmine\Server;
 use Ghezin\cp\Core;
 use Ghezin\cp\CPlayer;
 use Ghezin\cp\Utils;
+use Ghezin\cp\LevelUtils;
 use Ghezin\cp\Kits;
 use Ghezin\cp\duels\DuelHit;
 use Ghezin\cp\duels\groups\MatchedGroup;
@@ -256,9 +257,13 @@ class DuelGroup{
 			$opponent=Utils::getPlayer($loser);
 			if(!is_null($opponent)) Utils::spawnLightning($opponent);
 			if($this->isRanked()===true){
-				Core::getInstance()->getServer()->broadcastMessage("§b".Utils::getPlayerDisplayName($this->winnerName)." won a Ranked ".$this->getQueue()." match against ".Utils::getPlayerDisplayName($this->loserName)."!");
+				if(!is_null($opponent)){
+				        Core::getInstance()->getServer()->broadcastMessage("§b".Utils::getPlayerDisplayName($this->winnerName)." won a Ranked ".$this->getQueue()." match against ".Utils::getPlayerDisplayName($this->loserName)."!");
+				}
 			}else{
-				Core::getInstance()->getServer()->broadcastMessage("§7".Utils::getPlayerDisplayName($this->winnerName)." won an Unranked ".$this->getQueue()." match against ".Utils::getPlayerDisplayName($this->loserName)."!");
+				if(!is_null($opponent)){
+				        Core::getInstance()->getServer()->broadcastMessage("§7".Utils::getPlayerDisplayName($this->winnerName)." won an Unranked ".$this->getQueue()." match against ".Utils::getPlayerDisplayName($this->loserName)."!");
+				}
 			}
 			$this->initializeWin($player);
 			$this->initializeLoss($opponent);
@@ -304,6 +309,14 @@ class DuelGroup{
 		if($opponent instanceof CPlayer) $opponent->setTagged(false);
 		if($win===true){
 			if($winner!==self::NONE and $loser!==self::NONE){
+				if($ranked === true){
+					LevelUtils::increaseCurrentXp($winner, "kill", true);
+					LevelUtils::checkXp($winner);
+	
+				}else{
+					LevelUtils::increaseCurrentXp($winner, "kill", false);
+					LevelUtils::checkXp($winner);
+				}
 				if(!Core::getInstance()->getDuelHandler()->isPlayerInQueue($winner)){
 					if(Utils::isAutoRequeueEnabled($winner)==true){
 						Core::getInstance()->getDuelHandler()->addPlayerToQueue($winner, $queue, $ranked);
