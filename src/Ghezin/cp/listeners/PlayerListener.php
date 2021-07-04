@@ -68,6 +68,7 @@ use Ghezin\cp\CPlayer;
 use Ghezin\cp\Core;
 use Ghezin\cp\Kits;
 use Ghezin\cp\Utils;
+use Ghezin\cp\LevelUtils;
 
 class PlayerListener implements Listener{
 	
