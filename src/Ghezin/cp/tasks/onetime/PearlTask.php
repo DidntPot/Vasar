@@ -13,7 +13,7 @@ class PearlTask extends Task{
 	
 	public $player;
 	
-	private $timer=16;//always set a second higher than what second you want
+	private $timer=11;//always set a second higher than what second you want
 	
 	public function __construct(Core $plugin, Player $player){
 		$this->plugin=$plugin;
@@ -21,12 +21,12 @@ class PearlTask extends Task{
 	}
 	public function onRun(int $currentTick):void{
 		$this->timer--;
-		if($this->timer==16){
+		if($this->timer==10){
 			$this->player->setEnderPearlCooldown(true);
 			$percent=floatval($this->timer / 10);
 			$this->player->setXpProgress($percent);
 		}
-		if($this->timer<16){
+		if($this->timer<10){
 			$percent=floatval($this->timer / 10);
 			$this->player->setXpProgress($percent);
 		}
