@@ -64,23 +64,23 @@ class Core extends PluginBase{
 	const PREFIX="§b[Vasar]";
 	const CASTPREFIX="§8» §7";
 	const WEBHOOK="";
-	const IP="vasar.tk";
-	const SITE="www.vasar.tk";
-	const APPEAL="www.vasar.tk/appeal";
-	const CCAPPLY="www.vasar.tk/ccapply";
-	const APPLY="www.vasar.tk/apply";
-	const RULES="www.vasar.tk/rules";
-	const DISCORD="discord.gg/Xj9xWC3";
+	const IP="vasar.land";
+	const SITE="www.vasar.land";
+	const APPEAL="www.vasar.land/appeal";
+	const CCAPPLY="www.vasar.land/ccapply";
+	const APPLY="www.vasar.land/apply";
+	const RULES="www.vasar.land/rules";
+	const DISCORD="discord.gg/vasar";
 	const TWITTER="@VasarPractice";
 	const STORE="https://vasar.tebex.io/";
-	const VOTE="www.vasar.tk/vote";
+	const VOTE="www.vasar.land/vote";
 	const LOBBY="lobby";
 	const GOLDEN_HEAD="§r§eGolden Head";
 	
-	const HOST='na02-db.cus.mc-panel.net';
-	const USER='db_157003';
-	const PASS='70402e59a4';
-	const DATABASE='db_157003';
+	const HOST='';
+	const USER='';
+	const PASS='';
+	const DATABASE='';
 	
 	public function getPrefix():string{
 		return self::PREFIX;
@@ -149,7 +149,6 @@ class Core extends PluginBase{
 				$entity->close();
 			}
 		}
-		$this->getLogger()->info("Entities cleared...");
 
 		$this->disableCommands();
 		$this->setListeners();
@@ -158,12 +157,8 @@ class Core extends PluginBase{
 		$this->setTasks();
 		$this->setEntities();
 		$this->setItems();
-		$this->setFloaters();
 		$this->loadUpdatingFloatingTexts();
 		$this->loadStaticFloatingTexts();
-		
-		//$this->provider=new Provider($this);
-		//$this->provider->open();
 		
 		$this->main=new\SQLite3($this->getDataFolder()."Vasar.db");
 		$this->main->exec("CREATE TABLE IF NOT EXISTS rank (player TEXT PRIMARY KEY, rank TEXT);");
@@ -179,23 +174,6 @@ class Core extends PluginBase{
 		$this->staff->exec("CREATE TABLE IF NOT EXISTS permanentbans (player TEXT PRIMARY KEY, reason TEXT, staff TEXT, date TEXT);");
 		$this->staff->exec("CREATE TABLE IF NOT EXISTS warnpoints (player TEXT PRIMARY KEY, points INT);");
 		$this->staff->exec("CREATE TABLE IF NOT EXISTS staffstats (player TEXT PRIMARY KEY, timesjoined INT, timesleft INT, pointsgiven INT, mutesissued INT, kicksissued INT, temporarybansissued INT, permanentbansissued INT);");
-		$this->clans=new\SQLite3($this->getDataFolder()."VasarClans.db");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS master (player TEXT PRIMARY KEY, clan TEXT, rank TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS confirm (player TEXT PRIMARY KEY, clan TEXT, invitemainy TEXT, timestamp INT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS alliance (player TEXT PRIMARY KEY, clan TEXT, requestemainy TEXT, timestamp INT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS motdrcv (player TEXT PRIMARY KEY, timestamp INT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS motd (clan TEXT PRIMARY KEY, message TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS noticolor (clan TEXT PRIMARY KEY, color TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS privacy (clan TEXT PRIMARY KEY, open TEXT);");//true false
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS friendlyfire (clan TEXT PRIMARY KEY, pvp TEXT);");//true false
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS plots (clan TEXT PRIMARY KEY, x1 INT, z1 INT, x2 INT, z2 INT, world TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS home (clan TEXT PRIMARY KEY, x INT, y INT, z INT, world TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS power (clan TEXT PRIMARY KEY, power INT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS maxplayers (clan TEXT PRIMARY KEY, slots INT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS allies (ID INT PRIMARY KEY, clan1 TEXT, clan2 TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS enemies (ID INT PRIMARY KEY, clan1 TEXT, clan2 TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS alliescountlimit (clan TEXT PRIMARY KEY, count INT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS created (clan TEXT PRIMARY KEY, date TEXT);");
 
 		$this->getLogger()->info("
 		
@@ -210,7 +188,6 @@ class Core extends PluginBase{
 				$entity->close();
 			}
 		}
-		$this->getLogger()->info("Entities cleared...");
 		$players=$this->getServer()->getLoggedInPlayers();
 		if(sizeof($players)===0) return;
 		Utils::transferPlayers($players);
