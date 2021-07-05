@@ -92,9 +92,9 @@ duel-arenas:
 # You can name this whatever you want.
 topkills:
 
-    x: 4 #x coord where the floatingtext spawns in.
-    y: 58 #y coord where the floatingtext spawns in.
-    z: -20 #z coord where the floatingtext spawns in.
+    x: 1 #x coord where the floatingtext spawns in.
+    y: 1 #y coord where the floatingtext spawns in.
+    z: 1 #z coord where the floatingtext spawns in.
     
     # The Title of the floating text.
     title: "Top Kills"
@@ -106,7 +106,7 @@ topkills:
     text: "{doubleline}{topkills}"
     
     # The world where the floating text spawns in.
-    level: lobby
+    level: leaderboardworld
     
 ...
 ```
