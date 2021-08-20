@@ -1,7 +1,7 @@
 # Vasar
 **The official core system for Vasar/Colossus.**
 
-I developed this core for the intention of private use, so everything is hard coded. I suggest understanding [PHP](https://www.php.net/) and [PocketMine-MP](https://github.com/pmmp/PocketMine-MP) before attempting to make changes.
+I (Warro/Ghezin) developed this core for the intention of private use, so everything is hard coded. I suggest understanding [PHP](https://www.php.net/) and [PocketMine-MP](https://github.com/pmmp/PocketMine-MP) before attempting to make changes.
 
 Enjoy. ❤️️
 
@@ -80,8 +80,10 @@ duel-arenas:
           
         # Configure what gamemode this duel map is for.
         # Gamemodes: nodebuff, gapple, fist, sumo, combo
+        # Bots: easy, medium, hard, hacker.
         modes:
           - nodebuff
+          - easy
 ...
 ```
 
@@ -111,4 +113,4 @@ topkills:
 ...
 ```
 
-##### Developed by Ghezin aka Wqrro.
+##### Developed by Ghezin/Wqrro.
