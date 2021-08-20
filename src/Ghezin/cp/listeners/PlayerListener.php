@@ -324,13 +324,13 @@ class PlayerListener implements Listener{
 			$default=str_replace("{message}", $message, $default);
 			$event->setFormat($default);
 		}
-		if($player->hasPermission("cp.access.staffchat") and $message[0]=="!"){
+		if($player->hasPermission("cp.access.staffchat") and $message[0]=="+"){
 			$event->setCancelled();
 			foreach($this->plugin->getServer()->getOnlinePlayers() as $online){
 				if($online->hasPermission("cp.access.staffchat")){
-					$msg=str_replace("!", "", $message);
+					$msg=str_replace("+", "", $message);
 					$level=$online->getLevel()->getName();
-					$online->sendMessage("§8[STAFF] §7".$player->getName().": §f".$msg);
+					$online->sendMessage("§8[STAFF-CHAT] §7".$player->getName().": §f".$msg);
 				}
 			}
 		}
