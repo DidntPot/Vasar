@@ -1,7 +1,7 @@
 # Vasar
 **The official core system for Vasar/Colossus.**
 
-I (Warro/Ghezin) developed this core for the intention of private use, so everything is hard coded. I suggest understanding [PHP](https://www.php.net/) and [PocketMine-MP](https://github.com/pmmp/PocketMine-MP) before attempting to make changes.
+I (Warro/Ghezin) developed this core for the intention of private use, so everything is hard coded.
 
 Enjoy. ❤️️
 
