@@ -1,5 +1,6 @@
 name: Practice
-version: 1
-api: 3.0.0
-author: Ghezin (Warro)
+version: 1.0
+api: [3.0.0]
+author: Ghezin/Warro
 main: Ghezin\cp\Core
+mcpe-protocol: [448]
