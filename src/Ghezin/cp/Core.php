@@ -74,7 +74,7 @@ class Core extends PluginBase{
 	const TWITTER="@VasarPractice";
 	const STORE="https://vasar.tebex.io/";
 	const VOTE="www.vasar.land/vote";
-	const LOBBY="lobby";
+	const LOBBY="world";
 	const GOLDEN_HEAD="§r§eGolden Head";
 	
 	const HOST='';
