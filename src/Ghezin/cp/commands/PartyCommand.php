@@ -4,28 +4,30 @@ declare(strict_types=1);
 
 namespace Ghezin\cp\Commands;
 
-use pocketmine\Player;
-use pocketmine\command\PluginCommand;
-use pocketmine\command\CommandSender;
 use Ghezin\cp\Core;
-use Ghezin\cp\Utils;
-use Ghezin\cp\party\PartyManager;
+use pocketmine\command\CommandSender;
+use pocketmine\command\PluginCommand;
+use pocketmine\Player;
 
-class PartyCommand extends PluginCommand{
-	
-	private $plugin;
-	
-	public function __construct(Core $plugin){
-		parent::__construct("party", $plugin);
-		$this->plugin=$plugin;
-		$this->setAliases(["p"]);
-	}
-	public function execute(CommandSender $player, string $commandLabel, array $args){
-		if(!$player instanceof Player){
-			return;
-		}
-		$this->plugin->getForms()->partyForm($player);
-	}/*
+class PartyCommand extends PluginCommand
+{
+
+    private $plugin;
+
+    public function __construct(Core $plugin)
+    {
+        parent::__construct("party", $plugin);
+        $this->plugin = $plugin;
+        $this->setAliases(["p"]);
+    }
+
+    public function execute(CommandSender $player, string $commandLabel, array $args)
+    {
+        if (!$player instanceof Player) {
+            return;
+        }
+        $this->plugin->getForms()->partyForm($player);
+    }/*
 		if(!isset($args[0])){
 			$this->plugin->getForms()->partyForm($player);
 			return;

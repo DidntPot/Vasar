@@ -4,46 +4,64 @@ declare(strict_types=1);
 
 namespace Ghezin\cp\duels\groups;
 
-use pocketmine\Player;
 use Ghezin\cp\Utils;
+use pocketmine\Player;
 
-class MatchedBotGroup{
-	
-	private $playerName;
-	private $botName="Unknown";
-	private $bot;
-	private $difficulty;
+class MatchedBotGroup
+{
 
-	public function __construct($player, $bot, string $difficulty){
-		$this->playerName=Utils::getPlayerName($player);
-		if($bot!==null) $this->botName=$bot->getName();
-		$this->difficulty=$difficulty;
-		$this->bot=$bot;
-	}
-	public function getPlayerName():string{
-		return $this->playerName;
-	}
-	public function getBotName():string{
-		return $this->botName;
-	}
-	public function getPlayer(){
-		return Utils::getPlayer($this->playerName);
-	}
-	public function getBot(){
-		return $this->bot;
-	}
-    public function isPlayerOnline(){
-        $player=$this->getOpponent();
+    private $playerName;
+    private $botName = "Unknown";
+    private $bot;
+    private $difficulty;
+
+    public function __construct($player, $bot, string $difficulty)
+    {
+        $this->playerName = Utils::getPlayerName($player);
+        if ($bot !== null) $this->botName = $bot->getName();
+        $this->difficulty = $difficulty;
+        $this->bot = $bot;
+    }
+
+    public function getPlayerName(): string
+    {
+        return $this->playerName;
+    }
+
+    public function getBotName(): string
+    {
+        return $this->botName;
+    }
+
+    public function getPlayer()
+    {
+        return Utils::getPlayer($this->playerName);
+    }
+
+    public function isPlayerOnline()
+    {
+        $player = $this->getOpponent();
         return !is_null($player) and $player->isOnline();
     }
-    public function isBotOnline(){
-        $bot=$this->getBot();
+
+    public function isBotOnline()
+    {
+        $bot = $this->getBot();
         return !is_null($this->bot) and $this->bot->isAlive();
     }
-    public function getDifficulty():string{
-    	return $this->difficulty;
-   }
-    public function equals($object):bool{
+
+    public function getBot()
+    {
+        return $this->bot;
+    }
+
+    public function getDifficulty(): string
+    {
+        return $this->difficulty;
+    }
+
+    public function equals($object): bool
+    {
         return false;
     }
 }
