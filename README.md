@@ -12,16 +12,16 @@ Enjoy. ❤️️
   - Duration management
   - Spectators
 - [x] Party system
-  - Maximum membeers is based on rank (lowest = 8, highest = 20)
+  - Maximum members is based on rank (lowest = 8, highest = 20)
   - Manage privacy (require an invitation to join or public)
   - Manage members
   - Party duels
   - Party chat (use `*` before your message)
-- [x] Various statistical trackings (of use and deprecated)
+- [x] Various statistical tracking (of use and deprecated)
   - Kills
   - Deaths
   - KDR
-  - Killstreak (current and best)
+  - Kill-streak (current and best)
   - Elo
   - Levels
 - [x] Scoreboards
